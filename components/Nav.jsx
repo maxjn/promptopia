@@ -23,8 +23,8 @@ const Nav = () => {
       <Link href="/" className="flex gap-2 flex-center">
         <Image
           src="/assets/images/logo.svg"
-          width={30}
-          height={30}
+          width={40}
+          height={40}
           className="object-contain"
           alt="Logo"
         />
@@ -44,8 +44,8 @@ const Nav = () => {
             <Link href="/profile">
               <Image
                 src={session?.user.image}
-                width={44}
-                height={44}
+                width={38}
+                height={38}
                 className="rounded-full"
                 alt="profile"
               />{" "}
@@ -83,8 +83,8 @@ const Nav = () => {
           <div className="flex">
             <Image
               src={session?.user.image}
-              width={44}
-              height={44}
+              width={38}
+              height={38}
               className="rounded-full"
               alt="profile"
               onClick={() => {

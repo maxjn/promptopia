@@ -1,29 +1,42 @@
 "use client";
 
-import { useState } from "react";
-import { useRouter } from "next/navigation";
+import { useState, useEffect } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
 import { useSession } from "next-auth/react";
 
 import Form from "@components/Form";
 
-const CraetePrompt = () => {
+const UpdatePrompt = () => {
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const promptId = searchParams.get("id");
   const { data: session } = useSession();
 
   const [submitting, setSubmitting] = useState(false);
   const [post, setPost] = useState({ prompt: "", tag: "" });
 
-  const createNewPrompt = async (e) => {
+  // Effect
+  const getPromptDetails = async () => {
+    const res = await fetch(`/api/prompt/${promptId}`);
+    const data = await res.json();
+
+    setPost({ prompt: data.prompt, tag: data.tag });
+  };
+
+  useEffect(() => {
+    if (promptId) getPromptDetails();
+  }, [promptId]);
+
+  const updateThePrompt = async (e) => {
     e.preventDefault();
     setSubmitting(true);
 
     try {
-      const res = await fetch(`/api/prompt/new`, {
-        method: "POST",
+      const res = await fetch(`/api/prompt/${promptId}`, {
+        method: "PATCH",
         body: JSON.stringify({
           prompt: post.prompt,
           tag: post.tag,
-          userId: session?.user.id,
         }),
       });
 
@@ -39,13 +52,13 @@ const CraetePrompt = () => {
 
   return (
     <Form
-      type="Create"
+      type="Edit"
       post={post}
       setPost={setPost}
       submitting={submitting}
-      handleSubmit={createNewPrompt}
+      handleSubmit={updateThePrompt}
     />
   );
 };
 
-export default CraetePrompt;
+export default UpdatePrompt;
