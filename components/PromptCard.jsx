@@ -8,7 +8,6 @@ import Link from "next/link";
 
 const PromptCard = ({ prompt, handleTagClick, handleEdit, handleDelete }) => {
   const pathName = usePathname();
-  const router = useRouter();
   const { data: session } = useSession();
   const [copied, setCopied] = useState("");
 
