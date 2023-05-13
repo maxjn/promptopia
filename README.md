@@ -1,4 +1,4 @@
-# Promtopia - Nextjs v13.4
+# Promtopia - Nextjs v13.4.1
 
 This is a basic practical crud [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
@@ -9,7 +9,7 @@ It's a serverless crud app with authentication and other features, explore the [
 - JSX, Css, Tailwind
 - ES6
 - React
-- **Nextjs v13.5**
+- **Nextjs v13.4.1**
 - **Packages:** bcrypt, mongodb, mongoose, next-auth
 - **Routing:** useing new app directory
 
