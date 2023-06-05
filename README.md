@@ -14,12 +14,24 @@ It's a serverless crud app with authentication and other features, explore the [
 - **Routing:** useing new app directory
 
 ## Features
-
--
+- Authentication
+- Adding prompt
+- deleting prompt
+- updating prompt
+- getting prompt
+- search
+- filter
 
 ## Installation
 
+
+###### Add Environment Variables
+
+Create **.env.local** from '.env.example' file and declare the project environment variables
+
 Install **Promptopia** with npm
+
+###### shell command
 
 ```shell
 npm install
